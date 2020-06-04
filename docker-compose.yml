@@ -6,5 +6,6 @@ services:
       - "5000:5000"
     volumes:
       - .:/code
+      - ${USER_PATH}:/code/user_path
     environment:
       FLASK_ENV: development
