@@ -70,7 +70,7 @@ def format_file(path, file_name, with_text=False):
             # this object (permissions, size, etc.), and I would rather display that than nullify the whole
             # thing with an error page.
             file_text = "Cannot parse file text. Make sure your file is a valid txt file."
-        response["file_text"] = file_text,
+        response["file_text"] = str(file_text)
     return response
 
 

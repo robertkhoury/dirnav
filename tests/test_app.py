@@ -60,10 +60,7 @@ def test_file():
 	  "object_type": "file",
 	  "owner": "robertkhoury",
 	  "permissions": 33188,
-	  "file_text": [
-	    "content"
-	  ],
+	  "file_text": "content",
 	  "size": "7B"
 	}
-	print data
 	assert data == expected_response
