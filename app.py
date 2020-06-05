@@ -51,13 +51,11 @@ def format_folder(path, folder_name, with_contents=False):
 
 def format_file(path, file_name, with_text=False):
     file_stat = os.stat(path)
-    user_info = pwd.getpwuid(file_stat.st_uid)
-    owner_name = user_info.pw_name
     response = {
         "name": file_name,
         "object_type": "file",
         "size": "{0}B".format(file_stat.st_size),
-        "owner": owner_name,
+        "owner_id": file_stat.st_uid,
         "permissions": file_stat.st_mode
     }
     if with_text:

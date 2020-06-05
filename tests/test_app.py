@@ -10,7 +10,10 @@ ROOT_PATH = os.path.join(app.root_path, "user_path")
 TMP_DIR_PATH = os.path.join(ROOT_PATH, "tmp_test")
 TMP_FILE_PATH = os.path.join(TMP_DIR_PATH, "hello.txt")
 
+# NOTE - You will need to update the OWNER_ID to match your system's user id for the tests to pass
+OWNER_ID = 504
 CONTENT = "content"
+
 
 def teardown_function(function):
 	if os.path.exists(TMP_DIR_PATH):
@@ -36,7 +39,7 @@ def test_folder():
 	expected_response = {
 	  "folder_contents": [
 	    {
-	      "owner": "robertkhoury",
+	      "owner_id": OWNER_ID,
 	      "size": "7B",
 	      "object_type": "file",
 	      "name": "hello.txt",
@@ -58,7 +61,7 @@ def test_file():
 	expected_response = {
 	  "name": "hello.txt",
 	  "object_type": "file",
-	  "owner": "robertkhoury",
+	  "owner_id": OWNER_ID,
 	  "permissions": 33188,
 	  "file_text": "content",
 	  "size": "7B"
